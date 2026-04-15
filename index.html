@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>WoVR: World Models as Reliable Simulators for Post-Training VLA Policies with RL</title>
+  <meta name="title" content="WoVR: World Models as Reliable Simulators for Post-Training VLA Policies with RL">
+  <meta name="description" content="WoVR is a hallucination-aware world-model-based reinforcement learning framework for post-training VLA policies with stable long-horizon imagined rollouts.">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  <meta name="theme-color" content="#173a8a">
+  <meta name="msapplication-TileColor" content="#173a8a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="WoVR">
+  <meta property="og:title" content="WoVR: World Models as Reliable Simulators for Post-Training VLA Policies with RL">
+  <meta property="og:description" content="Reliable world-model-based reinforcement learning for post-training VLA policies by controlling hallucination in imagined rollouts.">
+  <meta property="og:url" content="https://wovr.github.io/">
+  <meta property="og:image" content="https://wovr.github.io/static/images/social_preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="WoVR project page preview">
+  <meta property="article:published_time" content="2026-02-15T00:00:00.000Z">
+  <meta property="article:section" content="Research">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="WoVR: World Models as Reliable Simulators for Post-Training VLA Policies with RL">
+  <meta name="twitter:description" content="Reliable world-model-based reinforcement learning for post-training VLA policies by controlling hallucination in imagined rollouts.">
+  <meta name="twitter:image" content="https://wovr.github.io/static/images/social_preview.png">
+
+  <meta name="citation_title" content="WoVR: World Models as Reliable Simulators for Post-Training VLA Policies with RL">
+  <meta name="citation_author" content="Jiang, Zhennan">
+  <meta name="citation_author" content="Zhou, Shangqing">
+  <meta name="citation_author" content="Jiang, Yutong">
+  <meta name="citation_author" content="Huang, Zefang">
+  <meta name="citation_author" content="Wei, Mingjie">
+  <meta name="citation_author" content="Chen, Yuhui">
+  <meta name="citation_author" content="Zhou, Tianxing">
+  <meta name="citation_author" content="Guo, Zhen">
+  <meta name="citation_author" content="Lin, Hao">
+  <meta name="citation_author" content="Zhang, Quanlu">
+  <meta name="citation_author" content="Wang, Yu">
+  <meta name="citation_author" content="Li, Haoran">
+  <meta name="citation_author" content="Yu, Chao">
+  <meta name="citation_author" content="Zhao, Dongbin">
+  <meta name="citation_publication_date" content="2026/02/15">
+  <meta name="citation_conference_title" content="arXiv preprint">
+  <meta name="citation_pdf_url" content="https://wovr.github.io/static/pdfs/wovr.pdf">
+
+  <link rel="canonical" href="https://wovr.github.io/">
+  <link rel="icon" type="image/png" href="static/images/icon.png">
+  <link rel="apple-touch-icon" href="static/images/icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "WoVR: World Models as Reliable Simulators for Post-Training VLA Policies with RL",
+    "description": "WoVR is a reliable world-model-based reinforcement learning framework for post-training VLA policies that controls hallucination through a stable action-conditioned world model, Keyframe-Initialized Rollouts, and policy-simulator co-evolution.",
+    "datePublished": "2026-02-15",
+    "url": "https://wovr.github.io/",
+    "image": "https://wovr.github.io/static/images/social_preview.png",
+    "author": [
+      {"@type": "Person", "name": "Zhennan Jiang"},
+      {"@type": "Person", "name": "Shangqing Zhou"},
+      {"@type": "Person", "name": "Yutong Jiang"},
+      {"@type": "Person", "name": "Zefang Huang"},
+      {"@type": "Person", "name": "Mingjie Wei"},
+      {"@type": "Person", "name": "Yuhui Chen"},
+      {"@type": "Person", "name": "Tianxing Zhou"},
+      {"@type": "Person", "name": "Zhen Guo"},
+      {"@type": "Person", "name": "Hao Lin"},
+      {"@type": "Person", "name": "Quanlu Zhang"},
+      {"@type": "Person", "name": "Yu Wang"},
+      {"@type": "Person", "name": "Haoran Li"},
+      {"@type": "Person", "name": "Chao Yu"},
+      {"@type": "Person", "name": "Dongbin Zhao"}
+    ],
+    "keywords": [
+      "world models",
+      "reinforcement learning",
+      "vision-language-action",
+      "robotics",
+      "hallucination control"
+    ],
+    "isAccessibleForFree": true,
+    "mainEntity": {
+      "@type": "WebPage",
+      "@id": "https://wovr.github.io/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <button class="scroll-to-top" id="scrollToTopButton" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <main id="main-content">
+    <section class="hero publication-header">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="hero-shell">
+            <div class="hero-copy">
+              <div class="eyebrow">
+                <span class="eyebrow-chip">Project Page</span>
+                <span class="eyebrow-chip is-muted">arXiv 2602.13977</span>
+                <span class="eyebrow-chip is-muted">Published February 15, 2026</span>
+              </div>
+
+              <h1 class="title is-2 publication-title">
+                <img src="static/images/icon.png" alt="WoVR icon" class="title-icon">
+                WoVR: World Models as Reliable Simulators for Post-Training VLA Policies with RL
+              </h1>
+
+              <p class="hero-summary">
+                WoVR turns learned world models into reliable simulators for reinforcement learning by
+                explicitly controlling hallucination at the simulator, interaction, and alignment levels.
+              </p>
+
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">Zhennan Jiang<sup>2,3,4,*</sup></span>
+                <span class="author-block">Shangqing Zhou<sup>2,3,*</sup></span>
+                <span class="author-block">Yutong Jiang<sup>3</sup></span>
+                <span class="author-block">Zefang Huang<sup>4</sup></span>
+                <span class="author-block">Mingjie Wei<sup>4</sup></span>
+                <span class="author-block">Yuhui Chen<sup>2,3</sup></span>
+                <span class="author-block">Tianxing Zhou<sup>4</sup></span>
+                <span class="author-block">Zhen Guo<sup>5</sup></span>
+                <span class="author-block">Hao Lin<sup>5</sup></span>
+                <span class="author-block">Quanlu Zhang<sup>5</sup></span>
+                <span class="author-block">Yu Wang<sup>1</sup></span>
+                <span class="author-block">Haoran Li<sup>2,3,&dagger;</sup></span>
+                <span class="author-block">Chao Yu<sup>1,&dagger;</sup></span>
+                <span class="author-block">Dongbin Zhao<sup>2,3,4</sup></span>
+              </div>
+
+              <div class="publication-affiliations">
+                <p><sup>*</sup> Equal contribution &nbsp; <sup>&dagger;</sup> Corresponding authors</p>
+                <p><sup>1</sup> Tsinghua University &nbsp; <sup>2</sup> Institute of Automation, Chinese Academy of Sciences</p>
+                <p><sup>3</sup> University of Chinese Academy of Sciences &nbsp; <sup>4</sup> Zhongguancun Academy &nbsp; <sup>5</sup> Infinigence AI</p>
+              </div>
+
+              <div class="publication-links">
+                <span class="link-block">
+                  <a class="button is-dark" href="static/pdfs/wovr.pdf" target="_blank" rel="noopener">
+                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a class="button is-light" href="https://arxiv.org/abs/2602.13977" target="_blank" rel="noopener">
+                    <span class="icon"><i class="ai ai-arxiv"></i></span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a class="button is-light" href="static/pdfs/appendix.pdf" target="_blank" rel="noopener">
+                    <span class="icon"><i class="fas fa-book-open"></i></span>
+                    <span>Appendix</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a class="button is-light" href="https://huggingface.co/collections/RLinf/rlinf-wovr" target="_blank" rel="noopener">
+                    <span class="icon"><i class="fas fa-cubes"></i></span>
+                    <span>HF Collection</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a class="button is-light" href="https://github.com/RLinf/RLinf" target="_blank" rel="noopener">
+                    <span class="icon"><i class="fab fa-github"></i></span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a class="button is-light" href="#media">
+                    <span class="icon"><i class="fas fa-play-circle"></i></span>
+                    <span>Videos</span>
+                  </a>
+                </span>
+              </div>
+
+              <div class="stats-strip">
+                <div class="quick-stat">
+                  <span class="stat-value">69.2%</span>
+                  <span class="stat-label">Average LIBERO success</span>
+                </div>
+                <div class="quick-stat">
+                  <span class="stat-value">+29.3</span>
+                  <span class="stat-label">points over base policy</span>
+                </div>
+                <div class="quick-stat">
+                  <span class="stat-value">91.7%</span>
+                  <span class="stat-label">Real-robot average success</span>
+                </div>
+                <div class="quick-stat">
+                  <span class="stat-value">23 FPS</span>
+                  <span class="stat-label">World-model rollout efficiency</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-figure-shell">
+              <figure class="hero-figure">
+                <img src="static/images/overview.png" alt="WoVR framework overview" loading="eager">
+              </figure>
+              <p class="figure-caption">
+                Reliability-aware optimization in imagination: a controllable simulator, hallucination-aware interaction,
+                and policy-simulator co-evolution.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hero is-light" id="abstract">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="section-header">
+            <p class="section-kicker">Overview</p>
+            <h2 class="title is-3">Abstract</h2>
+          </div>
+          <div class="content abstract-card">
+            <p>
+              Reinforcement learning (RL) promises to unlock capabilities beyond imitation learning for
+              Vision-Language-Action (VLA) models, but its requirement for massive real-world interaction
+              prevents direct deployment on physical robots. Recent work attempts to use learned world
+              models as simulators for policy optimization, yet closed-loop imagined rollouts inevitably
+              suffer from hallucination and long-horizon error accumulation. Such errors do not merely
+              degrade visual fidelity; they corrupt the optimization signal, encouraging policies to
+              exploit model inaccuracies rather than genuine task progress.
+            </p>
+            <p>
+              We propose WoVR, a reliable world-model-based reinforcement learning framework for
+              post-training VLA policies. Instead of assuming a faithful world model, WoVR explicitly
+              regulates how RL interacts with imperfect imagined dynamics. It improves rollout stability
+              through a controllable action-conditioned video world model, reshapes imagined interaction to
+              reduce effective error depth via Keyframe-Initialized Rollouts (KIR), and maintains
+              policy-simulator alignment through World Model-Policy co-evolution.
+            </p>
+            <p>
+              Extensive experiments on LIBERO benchmarks and real-world robotic manipulation demonstrate
+              that WoVR enables stable long-horizon imagined rollouts and effective policy optimization,
+              improving average LIBERO success from 39.95% to 69.2% (+29.3 points) and real-robot success
+              from 61.7% to 91.7% (+30.0 points). These results show that learned world models can serve
+              as practical simulators for reinforcement learning when hallucination is explicitly
+              controlled.
+            </p>
+          </div>
+
+          <div class="problem-card">
+            <h3 class="title is-5">The central question</h3>
+            <p>
+              If world models inevitably hallucinate under closed-loop rollouts, how can reinforcement
+              learning remain reliable instead of learning to exploit simulator errors?
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hero" id="method">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="section-header">
+            <p class="section-kicker">Method</p>
+            <h2 class="title is-3">A Reliability-Driven World-Model RL Pipeline</h2>
+            <p class="section-intro">
+              WoVR regulates reliability at three interconnected levels: simulator-level control,
+              interaction-level reshaping, and alignment-level co-evolution.
+            </p>
+          </div>
+
+          <figure class="figure-card full-width-card">
+            <img src="static/images/overview.png" alt="Overview of WoVR" loading="lazy">
+            <figcaption class="figure-caption">
+              <strong>Overall architecture.</strong> WoVR builds reinforcement learning around an imperfect
+              but controllable world model, shortening effective error depth and re-aligning the simulator
+              as the policy evolves.
+            </figcaption>
+          </figure>
+
+          <div class="method-grid">
+            <article class="method-card">
+              <div class="method-copy">
+                <span class="method-index">01</span>
+                <h3 class="title is-4">Stabilized Action-Conditioned World Model</h3>
+                <p>
+                  WoVR upgrades a video diffusion backbone into an action-controllable, rollout-stable
+                  simulator with dual-channel action injection and first-frame anchoring. This reduces
+                  long-horizon drift and keeps imagined trajectories responsive to policy actions.
+                </p>
+                <ul class="method-list">
+                  <li>Dual-path action conditioning for local modulation and global control.</li>
+                  <li>First-frame anchoring to preserve scene structure across autoregressive chunks.</li>
+                  <li>Noisy context training to narrow the train-inference gap.</li>
+                </ul>
+              </div>
+              <div class="method-media">
+                <img src="static/images/world-model-arch.png" alt="World model architecture" loading="lazy">
+              </div>
+            </article>
+
+            <article class="method-card">
+              <div class="method-copy">
+                <span class="method-index">02</span>
+                <h3 class="title is-4">Hallucination-Aware Interaction with KIR</h3>
+                <p>
+                  Instead of always rolling out from the episode start, Keyframe-Initialized Rollouts (KIR)
+                  start part of the imagined trajectories near task-critical states. Combined with masked
+                  GRPO, WoVR avoids over-optimizing on hallucinated post-success frames.
+                </p>
+                <ul class="method-list">
+                  <li>Initialize rollouts near critical contacts and failure states.</li>
+                  <li>Reduce effective prediction depth before the policy reaches decisive moments.</li>
+                  <li>Mask post-success steps to suppress reward hacking in imagination.</li>
+                </ul>
+              </div>
+              <div class="method-media">
+                <img src="static/images/kir.png" alt="Keyframe-Initialized Rollouts illustration" loading="lazy">
+              </div>
+            </article>
+
+            <article class="method-card is-text-only">
+              <div class="method-copy">
+                <span class="method-index">03</span>
+                <h3 class="title is-4">PACE: Policy-Simulator Co-Evolution</h3>
+                <p>
+                  Policy optimization changes the action distribution, which can make a previously reliable
+                  world model drift out of regime. PACE periodically refreshes the simulator with new data
+                  gathered under the updated policy so the world model stays aligned with the behavior it is
+                  asked to simulate.
+                </p>
+                <div class="callout-list">
+                  <div class="callout-pill">Mitigates distribution shift</div>
+                  <div class="callout-pill">Preserves simulator reliability</div>
+                  <div class="callout-pill">Supports scalable on-policy optimization in imagination</div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hero is-light" id="results">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="section-header">
+            <p class="section-kicker">Results</p>
+            <h2 class="title is-3">Strong Gains in Simulation and on Real Robots</h2>
+            <p class="section-intro">
+              WoVR improves both imagined rollout reliability and downstream task success under a shared
+              real-environment data budget.
+            </p>
+          </div>
+
+          <div class="results-grid">
+            <article class="metric-card">
+              <h3 class="title is-5">LIBERO benchmark</h3>
+              <p class="metric-highlight">39.9% &rarr; 69.2%</p>
+              <p class="metric-copy">
+                Average success improves by <strong>+29.3 points</strong> over the base OpenVLA-OFT policy
+                across Spatial, Object, Goal, and Long suites.
+              </p>
+              <div class="suite-grid">
+                <div class="suite-card">
+                  <span class="suite-name">Spatial</span>
+                  <span class="suite-score">81.5%</span>
+                  <span class="suite-delta">+20.0</span>
+                </div>
+                <div class="suite-card">
+                  <span class="suite-name">Object</span>
+                  <span class="suite-score">82.0%</span>
+                  <span class="suite-delta">+45.7</span>
+                </div>
+                <div class="suite-card">
+                  <span class="suite-name">Goal</span>
+                  <span class="suite-score">77.5%</span>
+                  <span class="suite-delta">+29.3</span>
+                </div>
+                <div class="suite-card">
+                  <span class="suite-name">Long</span>
+                  <span class="suite-score">35.8%</span>
+                  <span class="suite-delta">+22.1</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="metric-card">
+              <h3 class="title is-5">Real-world transfer</h3>
+              <p class="metric-highlight">61.7% &rarr; 91.7%</p>
+              <p class="metric-copy">
+                On a Franka Panda robot, WoVR raises average success by <strong>+30.0 points</strong>
+                across Pick Banana and Pick Bread without online real-world RL.
+              </p>
+              <figure class="embedded-figure">
+                <img src="static/images/real-setup.jpg" alt="Real-world setup on Franka Panda" loading="lazy">
+                <figcaption class="figure-caption">
+                  Real-robot evaluation for Pick Banana and Pick Bread on a Franka Panda platform.
+                </figcaption>
+              </figure>
+            </article>
+          </div>
+
+          <div class="highlights-row">
+            <div class="highlight-tile">
+              <span class="highlight-label">Why it works</span>
+              <p>Improved controllability and rollout stability make imagined trajectories more useful for RL.</p>
+            </div>
+            <div class="highlight-tile">
+              <span class="highlight-label">Why it matters</span>
+              <p>Reliable imagination lets us optimize VLA policies without the cost of large-scale online robot interaction.</p>
+            </div>
+            <div class="highlight-tile">
+              <span class="highlight-label">Key takeaway</span>
+              <p>World models can be practical RL simulators when hallucination is managed explicitly rather than ignored.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hero" id="media">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="section-header">
+            <p class="section-kicker">Media</p>
+            <h2 class="title is-3">Supplementary Videos</h2>
+          </div>
+
+          <div class="media-grid">
+            <article class="video-card">
+              <h3 class="title is-5">Project Presentation</h3>
+              <video controls preload="metadata" playsinline class="project-video">
+                <source src="static/videos/presentation.mp4" type="video/mp4">
+              </video>
+            </article>
+
+            <article class="video-card">
+              <h3 class="title is-5">KIR Rollout Snippet</h3>
+              <video controls muted loop preload="metadata" playsinline class="project-video">
+                <source src="static/videos/kir-rollout.mp4" type="video/mp4">
+              </video>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop">
+        <div class="bibtex-shell">
+          <div class="bibtex-header">
+            <div>
+              <p class="section-kicker">Citation</p>
+              <h2 class="title is-3">BibTeX</h2>
+            </div>
+            <button class="copy-bibtex-btn" id="copyBibtexButton" title="Copy BibTeX to clipboard">
+              <span class="icon"><i class="fas fa-copy"></i></span>
+              <span class="copy-text">Copy</span>
+            </button>
+          </div>
+          <pre id="bibtex-code"><code>@misc{jiang2026wovr,
+  title   = {WoVR: World Models as Reliable Simulators for Post-Training VLA Policies with RL},
+  author  = {Jiang, Zhennan and Zhou, Shangqing and Jiang, Yutong and Huang, Zefang and Wei, Mingjie and Chen, Yuhui and Zhou, Tianxing and Guo, Zhen and Lin, Hao and Zhang, Quanlu and Wang, Yu and Li, Haoran and Yu, Chao and Zhao, Dongbin},
+  year    = {2026},
+  journal = {arXiv preprint arXiv:2602.13977}
+}</code></pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container is-max-desktop">
+      <p>
+        This website is styled after the single-page academic format used by the
+        <a href="https://github.com/World4RL/World4RL.github.io" target="_blank" rel="noopener">World4RL project page</a>,
+        and adapted for WoVR with paper materials, figures, and media from the provided sources.
+      </p>
+    </div>
+  </footer>
+
+  <script defer src="static/js/index.js"></script>
+</body>
+</html>
