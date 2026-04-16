@@ -110,23 +110,47 @@
     <section class="hero publication-header">
       <div class="hero-body">
         <div class="container is-max-desktop">
+          <div class="hero-intro">
+            <div class="eyebrow">
+              <span class="eyebrow-chip">Project Page</span>
+              <span class="eyebrow-chip is-muted">arXiv 2602.13977</span>
+              <span class="eyebrow-chip is-muted">Published February 15, 2026</span>
+            </div>
+
+            <h1 class="title is-2 publication-title">
+              <img src="static/images/icon.png" alt="WoVR icon" class="title-icon">
+              WoVR: World Models as Reliable Simulators for Post-Training VLA Policies with RL
+            </h1>
+          </div>
+
           <div class="hero-shell">
             <div class="hero-copy">
-              <div class="eyebrow">
-                <span class="eyebrow-chip">Project Page</span>
-                <span class="eyebrow-chip is-muted">arXiv 2602.13977</span>
-                <span class="eyebrow-chip is-muted">Published February 15, 2026</span>
+              <div class="publication-links">
+                <span class="link-block">
+                  <a class="button is-dark" href="static/pdfs/wovr.pdf" target="_blank" rel="noopener">
+                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a class="button is-light" href="https://arxiv.org/abs/2602.13977" target="_blank" rel="noopener">
+                    <span class="icon"><i class="ai ai-arxiv"></i></span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a class="button is-light" href="https://huggingface.co/collections/RLinf/rlinf-wovr" target="_blank" rel="noopener">
+                    <span class="icon"><i class="fas fa-cubes"></i></span>
+                    <span>HF Collection</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a class="button is-light" href="https://github.com/RLinf/RLinf" target="_blank" rel="noopener">
+                    <span class="icon"><i class="fab fa-github"></i></span>
+                    <span>Code</span>
+                  </a>
+                </span>
               </div>
-
-              <h1 class="title is-2 publication-title">
-                <img src="static/images/icon.png" alt="WoVR icon" class="title-icon">
-                WoVR: World Models as Reliable Simulators for Post-Training VLA Policies with RL
-              </h1>
-
-              <p class="hero-summary">
-                WoVR turns learned world models into reliable simulators for reinforcement learning by
-                explicitly controlling hallucination at the simulator, interaction, and alignment levels.
-              </p>
 
               <div class="is-size-5 publication-authors">
                 <span class="author-block">Zhennan Jiang<sup>2,3,4,*</sup></span>
@@ -149,45 +173,6 @@
                 <p><sup>*</sup> Equal contribution &nbsp; <sup>&dagger;</sup> Corresponding authors</p>
                 <p><sup>1</sup> Tsinghua University &nbsp; <sup>2</sup> Institute of Automation, Chinese Academy of Sciences</p>
                 <p><sup>3</sup> University of Chinese Academy of Sciences &nbsp; <sup>4</sup> Zhongguancun Academy &nbsp; <sup>5</sup> Infinigence AI</p>
-              </div>
-
-              <div class="publication-links">
-                <span class="link-block">
-                  <a class="button is-dark" href="static/pdfs/wovr.pdf" target="_blank" rel="noopener">
-                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
-                    <span>Paper</span>
-                  </a>
-                </span>
-                <span class="link-block">
-                  <a class="button is-light" href="https://arxiv.org/abs/2602.13977" target="_blank" rel="noopener">
-                    <span class="icon"><i class="ai ai-arxiv"></i></span>
-                    <span>arXiv</span>
-                  </a>
-                </span>
-                <span class="link-block">
-                  <a class="button is-light" href="static/pdfs/appendix.pdf" target="_blank" rel="noopener">
-                    <span class="icon"><i class="fas fa-book-open"></i></span>
-                    <span>Appendix</span>
-                  </a>
-                </span>
-                <span class="link-block">
-                  <a class="button is-light" href="https://huggingface.co/collections/RLinf/rlinf-wovr" target="_blank" rel="noopener">
-                    <span class="icon"><i class="fas fa-cubes"></i></span>
-                    <span>HF Collection</span>
-                  </a>
-                </span>
-                <span class="link-block">
-                  <a class="button is-light" href="https://github.com/RLinf/RLinf" target="_blank" rel="noopener">
-                    <span class="icon"><i class="fab fa-github"></i></span>
-                    <span>Code</span>
-                  </a>
-                </span>
-                <span class="link-block">
-                  <a class="button is-light" href="#media">
-                    <span class="icon"><i class="fas fa-play-circle"></i></span>
-                    <span>Videos</span>
-                  </a>
-                </span>
               </div>
 
               <div class="stats-strip">
@@ -220,6 +205,11 @@
               </p>
             </div>
           </div>
+
+          <p class="hero-summary">
+            WoVR turns learned world models into reliable simulators for reinforcement learning by
+            explicitly controlling hallucination at the simulator, interaction, and alignment levels.
+          </p>
         </div>
       </div>
     </section>

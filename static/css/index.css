@@ -56,6 +56,10 @@ a:hover {
   padding-bottom: 4rem;
 }
 
+.hero-intro {
+  margin-bottom: 1.6rem;
+}
+
 .title,
 .publication-title {
   color: var(--text-primary);
@@ -67,8 +71,11 @@ a:hover {
   display: flex;
   align-items: center;
   gap: 1rem;
+  width: 100%;
+  max-width: none;
   margin-bottom: 1.25rem !important;
   line-height: 1.05 !important;
+  font-size: clamp(2.8rem, 5vw, 4.85rem) !important;
 }
 
 .title-icon {
@@ -100,9 +107,9 @@ a:hover {
 
 .hero-shell {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.95fr);
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr);
   gap: 2rem;
-  align-items: center;
+  align-items: start;
 }
 
 .eyebrow {
@@ -130,17 +137,24 @@ a:hover {
 }
 
 .hero-summary {
-  font-size: 1.12rem;
+  width: 100%;
+  max-width: none;
+  font-size: clamp(1.12rem, 1.6vw, 1.38rem);
   color: var(--text-secondary);
-  max-width: 50rem;
-  margin-bottom: 1.5rem;
+  line-height: 1.7;
+  margin: 1.75rem 0 0;
+  padding: 1rem 1.15rem;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(23, 58, 138, 0.08);
+  border-radius: var(--radius);
 }
 
 .publication-authors {
   margin-bottom: 1rem;
   color: var(--text-primary);
   font-weight: 500;
-  line-height: 1.85;
+  font-size: 1.04rem !important;
+  line-height: 1.72;
 }
 
 .author-block {
@@ -159,7 +173,7 @@ a:hover {
 }
 
 .publication-links {
-  margin-bottom: 1.85rem;
+  margin-bottom: 1.2rem;
 }
 
 .link-block {
@@ -231,6 +245,11 @@ a:hover {
   background: rgba(255, 255, 255, 0.92);
   border: 1px solid rgba(23, 58, 138, 0.08);
   box-shadow: var(--shadow-lg);
+}
+
+.hero-figure img {
+  width: 100%;
+  height: auto;
 }
 
 .figure-caption {
@@ -592,6 +611,10 @@ a:hover {
   .stats-strip,
   .suite-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hero-summary {
+    padding: 0.95rem 1rem;
   }
 
   .abstract-card,
