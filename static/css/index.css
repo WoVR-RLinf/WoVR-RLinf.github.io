@@ -75,7 +75,6 @@ a:hover {
   max-width: none;
   margin-bottom: 1.25rem !important;
   line-height: 1.05 !important;
-  font-size: clamp(2.8rem, 5vw, 4.85rem) !important;
 }
 
 .title-icon {
@@ -106,10 +105,7 @@ a:hover {
 }
 
 .hero-shell {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr);
-  gap: 2rem;
-  align-items: start;
+  display: block;
 }
 
 .eyebrow {
@@ -173,7 +169,7 @@ a:hover {
 }
 
 .publication-links {
-  margin-bottom: 1.2rem;
+  margin-bottom: 0;
 }
 
 .link-block {
@@ -207,56 +203,6 @@ a:hover {
   background: rgba(255, 255, 255, 0.88) !important;
   color: var(--text-primary) !important;
   border-color: rgba(23, 58, 138, 0.12) !important;
-}
-
-.stats-strip {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.95rem;
-}
-
-.quick-stat {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  padding: 1rem 1rem 0.95rem;
-  background: rgba(255, 255, 255, 0.86);
-  border: 1px solid rgba(23, 58, 138, 0.08);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
-  backdrop-filter: blur(10px);
-}
-
-.stat-value {
-  font-family: 'Space Grotesk', 'Inter', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--primary-color);
-}
-
-.stat-label {
-  color: var(--text-secondary);
-  font-size: 0.92rem;
-}
-
-.hero-figure {
-  overflow: hidden;
-  border-radius: var(--radius-lg);
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(23, 58, 138, 0.08);
-  box-shadow: var(--shadow-lg);
-}
-
-.hero-figure img {
-  width: 100%;
-  height: auto;
-}
-
-.figure-caption {
-  color: var(--text-light);
-  font-size: 0.96rem;
-  line-height: 1.6;
-  margin-top: 0.85rem;
 }
 
 .abstract-card,
@@ -570,14 +516,9 @@ a:hover {
 }
 
 @media screen and (max-width: 1023px) {
-  .hero-shell,
   .results-grid,
   .media-grid {
     grid-template-columns: 1fr;
-  }
-
-  .stats-strip {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .method-card {
@@ -608,7 +549,6 @@ a:hover {
     height: 44px;
   }
 
-  .stats-strip,
   .suite-grid {
     grid-template-columns: 1fr;
   }
