@@ -363,6 +363,10 @@ a:hover {
   padding: 1.45rem;
 }
 
+.metric-card.is-wide {
+  grid-column: 1 / -1;
+}
+
 .metric-highlight {
   margin: 0.6rem 0 0.85rem;
   color: var(--primary-color);
@@ -374,6 +378,44 @@ a:hover {
 
 .metric-copy {
   color: var(--text-secondary);
+}
+
+.submetric-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.submetric-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.28rem;
+  padding: 0.95rem 1rem;
+  border-radius: var(--radius);
+  background: var(--surface-soft);
+  border: 1px solid rgba(23, 58, 138, 0.08);
+}
+
+.submetric-name {
+  color: var(--text-light);
+  font-size: 0.86rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+}
+
+.submetric-score {
+  color: var(--text-primary);
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-size: 1.38rem;
+  font-weight: 700;
+}
+
+.submetric-detail {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 .suite-grid {
@@ -587,6 +629,10 @@ a:hover {
   }
 
   .suite-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .submetric-grid {
     grid-template-columns: 1fr;
   }
 

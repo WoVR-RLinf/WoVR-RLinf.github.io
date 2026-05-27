@@ -144,8 +144,8 @@
 
               <div class="publication-affiliations">
                 <p><sup>*</sup> Equal contribution &nbsp; <sup>&dagger;</sup> Corresponding authors</p>
-                <p><sup>1</sup> Tsinghua University &nbsp; <sup>2</sup> Institute of Automation, Chinese Academy of Sciences</p>
-                <p><sup>3</sup> University of Chinese Academy of Sciences &nbsp; <sup>4</sup> Zhongguancun Academy &nbsp; <sup>5</sup> Infinigence AI</p>
+                <p><sup>1</sup> Tsinghua University &nbsp; <sup>2</sup> University of Chinese Academy of Sciences</p>
+                <p><sup>3</sup> Institute of Automation, Chinese Academy of Sciences &nbsp; <sup>4</sup> Zhongguancun Academy &nbsp; <sup>5</sup> Infinigence AI</p>
               </div>
 
               <div class="publication-links">
@@ -208,25 +208,23 @@
               Vision-Language-Action (VLA) models, but its requirement for massive real-world interaction
               prevents direct deployment on physical robots. Recent work attempts to use learned world
               models as simulators for policy optimization, yet closed-loop imagined rollouts inevitably
-              suffer from hallucination and long-horizon error accumulation. Such errors do not merely
-              degrade visual fidelity; they corrupt the optimization signal, encouraging policies to
-              exploit model inaccuracies rather than genuine task progress.
+              suffer from hallucination and long-horizon error accumulation. Such errors not only degrade
+              visual fidelity, but also mislead policy optimization by providing unreliable learning
+              signals.
             </p>
             <p>
-              We propose WoVR, a reliable world-model-based reinforcement learning framework for
-              post-training VLA policies. Instead of assuming a faithful world model, WoVR explicitly
-              regulates how RL interacts with imperfect imagined dynamics. It improves rollout stability
-              through a controllable action-conditioned video world model, reshapes imagined interaction to
-              reduce effective error depth via Keyframe-Initialized Rollouts (KIR), and maintains
-              policy-simulator alignment through World Model-Policy co-evolution.
+              We propose <strong>WoVR</strong>, a reliable world-model-based RL framework for post-training
+              VLA policies. Instead of assuming a faithful world model, WoVR explicitly regulates how RL
+              interacts with imperfect imagined dynamics. It improves rollout stability through a
+              controllable action-conditioned video world model, reshapes imagined interaction to reduce
+              effective error depth via Keyframe-Initialized Rollouts (KIR), and maintains policy-simulator
+              alignment through World Model-Policy co-evolution.
             </p>
             <p>
-              Extensive experiments on LIBERO benchmarks and real-world robotic manipulation demonstrate
-              that WoVR enables stable long-horizon imagined rollouts and effective policy optimization,
-              improving average LIBERO success from 39.95% to 69.2% (+29.3 points) and real-robot success
-              from 61.7% to 91.7% (+30.0 points). These results show that learned world models can serve
-              as practical simulators for reinforcement learning when hallucination is explicitly
-              controlled.
+              Extensive experiments demonstrate that WoVR enables stable long-horizon imagined rollouts and
+              effective policy optimization, achieving superior LIBERO performance and consistent real-world
+              gains across multiple robotic platforms. These results show that world models can serve as
+              practical simulators for RL when hallucination is explicitly controlled.
             </p>
           </div>
 
@@ -256,9 +254,8 @@
           <figure class="figure-card full-width-card">
             <img src="static/images/overview.png" alt="Overview of WoVR" loading="lazy">
             <figcaption class="figure-caption">
-              <strong>Overall architecture.</strong> WoVR builds reinforcement learning around an imperfect
-              but controllable world model, shortening effective error depth and re-aligning the simulator
-              as the policy evolves.
+              <strong>Overall architecture.</strong> WoVR builds a reliability-driven reinforcement learning
+              framework entirely around the learned world model.
             </figcaption>
           </figure>
 
@@ -289,13 +286,14 @@
                 <h3 class="title is-4">Hallucination-Aware Interaction with KIR</h3>
                 <p>
                   Instead of always rolling out from the episode start, Keyframe-Initialized Rollouts (KIR)
-                  start part of the imagined trajectories near task-critical states. Combined with masked
-                  GRPO, WoVR avoids over-optimizing on hallucinated post-success frames.
+                  start part of the imagined trajectories near task-critical states. This shortens the
+                  effective prediction depth and keeps policy learning closer to physically meaningful
+                  transitions.
                 </p>
                 <ul class="method-list">
                   <li>Initialize rollouts near critical contacts and failure states.</li>
-                  <li>Reduce effective prediction depth before the policy reaches decisive moments.</li>
-                  <li>Mask post-success steps to suppress reward hacking in imagination.</li>
+                  <li>Shorten the prefix the world model must predict before decisive moments.</li>
+                  <li>Reduce hallucination compounding and spurious long-horizon success.</li>
                 </ul>
               </div>
               <div class="method-media">
@@ -330,73 +328,144 @@
         <div class="container is-max-desktop">
           <div class="section-header">
             <p class="section-kicker">Results</p>
-            <h2 class="title is-3">Strong Gains in Simulation and on Real Robots</h2>
+            <h2 class="title is-3">Updated Results from the Latest CoRL Version</h2>
             <p class="section-intro">
-              WoVR improves both imagined rollout reliability and downstream task success under a shared
-              real-environment data budget.
+              The latest paper version expands evaluation to stronger initialization settings and
+              multi-platform real-world transfer while keeping the same core conclusion: reliable
+              imagination leads to better downstream RL.
             </p>
           </div>
 
           <div class="results-grid">
             <article class="metric-card">
-              <h3 class="title is-5">LIBERO benchmark</h3>
-              <p class="metric-highlight">39.9% &rarr; 69.2%</p>
+              <h3 class="title is-5">World model quality</h3>
+              <p class="metric-highlight">23 FPS</p>
               <p class="metric-copy">
-                Average success improves by <strong>+29.3 points</strong> over the base OpenVLA-OFT policy
-                across Spatial, Object, Goal, and Long suites.
+                Under 512-step autoregressive rollout, WoVR achieves the strongest simulator quality among
+                EVAC, Cosmos-Predict2, OpenSora, and WoVR, while remaining substantially faster at
+                inference time.
               </p>
               <div class="suite-grid">
                 <div class="suite-card">
-                  <span class="suite-name">Spatial</span>
-                  <span class="suite-score">81.5%</span>
-                  <span class="suite-delta">+20.0</span>
+                  <span class="suite-name">LPIPS</span>
+                  <span class="suite-score">0.091</span>
+                  <span class="suite-delta">@512 rollout</span>
                 </div>
                 <div class="suite-card">
-                  <span class="suite-name">Object</span>
-                  <span class="suite-score">82.0%</span>
-                  <span class="suite-delta">+45.7</span>
+                  <span class="suite-name">FID</span>
+                  <span class="suite-score">34.252</span>
+                  <span class="suite-delta">best overall</span>
                 </div>
                 <div class="suite-card">
-                  <span class="suite-name">Goal</span>
-                  <span class="suite-score">77.5%</span>
-                  <span class="suite-delta">+29.3</span>
+                  <span class="suite-name">FVD</span>
+                  <span class="suite-score">68.011</span>
+                  <span class="suite-delta">best overall</span>
                 </div>
                 <div class="suite-card">
-                  <span class="suite-name">Long</span>
-                  <span class="suite-score">35.8%</span>
-                  <span class="suite-delta">+22.1</span>
+                  <span class="suite-name">FloLPIPS</span>
+                  <span class="suite-score">0.154</span>
+                  <span class="suite-delta">best overall</span>
                 </div>
               </div>
             </article>
 
             <article class="metric-card">
-              <h3 class="title is-5">Real-world transfer</h3>
-              <p class="metric-highlight">61.7% &rarr; 91.7%</p>
+              <h3 class="title is-5">LIBERO policy gains</h3>
+              <p class="metric-highlight">40.5% &rarr; 69.5%</p>
               <p class="metric-copy">
-                On a Franka Panda robot, WoVR raises average success by <strong>+30.0 points</strong>
-                across Pick Banana and Pick Bread without online real-world RL.
+                The updated paper evaluates both one-trajectory SFT and full-trajectory SFT. WoVR remains
+                the best method under both weak and strong initialization.
+              </p>
+              <div class="submetric-grid">
+                <div class="submetric-card">
+                  <span class="submetric-name">One-Trajectory SFT</span>
+                  <span class="submetric-score">69.5%</span>
+                  <span class="submetric-detail">Base 40.5 / GRPO 44.6 / WMPO 50.9</span>
+                  <span class="submetric-detail">Object +44.4, Long +22.0</span>
+                </div>
+                <div class="submetric-card">
+                  <span class="submetric-name">Full-Trajectory SFT</span>
+                  <span class="submetric-score">96.0%</span>
+                  <span class="submetric-detail">Base 88.1 / GRPO 89.7 / WMPO 92.4</span>
+                  <span class="submetric-detail">Average gain +7.9</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="metric-card is-wide">
+              <h3 class="title is-5">Real-world transfer on two robotic platforms</h3>
+              <p class="metric-highlight">51.1% &rarr; 80.0%</p>
+              <p class="metric-copy">
+                The latest version evaluates three tasks on <strong>Franka Emika Panda</strong> and three
+                tasks on <strong>AgileX Piper</strong>. WoVR improves both platforms without additional
+                online real-world RL.
               </p>
               <figure class="embedded-figure">
-                <img src="static/images/real-setup.jpg" alt="Real-world setup on Franka Panda" loading="lazy">
+                <img src="static/images/real-world-grid.jpg" alt="Real-world experiments on Franka and AgileX Piper" loading="lazy">
                 <figcaption class="figure-caption">
-                  Real-robot evaluation for Pick Banana and Pick Bread on a Franka Panda platform.
+                  Top row: Franka Emika Panda tasks. Bottom row: AgileX Piper tasks.
                 </figcaption>
               </figure>
+              <div class="submetric-grid">
+                <div class="submetric-card">
+                  <span class="submetric-name">Franka Emika Panda</span>
+                  <span class="submetric-score">80.0%</span>
+                  <span class="submetric-detail">Base 51.1 / WoVR 80.0 / +28.9</span>
+                  <span class="submetric-detail">Pick Banana 86.7, Pick Bread 90.0, Open Drawer 63.3</span>
+                </div>
+                <div class="submetric-card">
+                  <span class="submetric-name">AgileX Piper</span>
+                  <span class="submetric-score">28.9%</span>
+                  <span class="submetric-detail">Base 15.5 / WoVR 28.9 / +13.4</span>
+                  <span class="submetric-detail">Fold Towel 20.0, Pick Cube 33.3, Pick Tomato 33.3</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="metric-card">
+              <h3 class="title is-5">Generalization to a different VLA backbone</h3>
+              <p class="metric-highlight">34.4% &rarr; 56.7%</p>
+              <p class="metric-copy">
+                Using <strong>&pi;<sub>0.5</sub></strong> as the VLA backbone on AgileX Piper, WoVR still
+                delivers clear gains when combined with Flow-SDE policy optimization.
+              </p>
+              <div class="suite-grid">
+                <div class="suite-card">
+                  <span class="suite-name">Fold Towel</span>
+                  <span class="suite-score">30.0%</span>
+                  <span class="suite-delta">+10.0</span>
+                </div>
+                <div class="suite-card">
+                  <span class="suite-name">Pick Cube</span>
+                  <span class="suite-score">86.7%</span>
+                  <span class="suite-delta">+26.7</span>
+                </div>
+                <div class="suite-card">
+                  <span class="suite-name">Pick Tomato</span>
+                  <span class="suite-score">53.3%</span>
+                  <span class="suite-delta">+30.0</span>
+                </div>
+                <div class="suite-card">
+                  <span class="suite-name">Average</span>
+                  <span class="suite-score">56.7%</span>
+                  <span class="suite-delta">+22.3</span>
+                </div>
+              </div>
             </article>
           </div>
 
           <div class="highlights-row">
             <div class="highlight-tile">
-              <span class="highlight-label">Why it works</span>
-              <p>Improved controllability and rollout stability make imagined trajectories more useful for RL.</p>
+              <span class="highlight-label">Simulator</span>
+              <p>WoVR is both faster and more stable than prior world-model baselines under long-horizon rollout.</p>
             </div>
             <div class="highlight-tile">
-              <span class="highlight-label">Why it matters</span>
-              <p>Reliable imagination lets us optimize VLA policies without the cost of large-scale online robot interaction.</p>
+              <span class="highlight-label">Policy</span>
+              <p>Reliable imagination consistently outperforms limited-budget online RL and previous world-model RL.</p>
             </div>
             <div class="highlight-tile">
-              <span class="highlight-label">Key takeaway</span>
-              <p>World models can be practical RL simulators when hallucination is managed explicitly rather than ignored.</p>
+              <span class="highlight-label">Transfer</span>
+              <p>Performance gains carry over to different platforms and even to a different VLA backbone.</p>
             </div>
           </div>
         </div>
