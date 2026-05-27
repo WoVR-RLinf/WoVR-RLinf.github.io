@@ -107,6 +107,108 @@
   </button>
 
   <main id="main-content">
+    <section class="section hero execution-showcase" id="execution-video">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="section-header">
+            <p class="section-kicker">Real Robot</p>
+            <h2 class="title is-3">Real-World Execution Video</h2>
+            <p class="execution-platform">OpenVLA-OFT + Franka</p>
+          </div>
+
+          <div class="execution-board">
+            <div class="execution-board-head">
+              <div></div>
+              <div class="execution-head-group" style="grid-column: 2 / span 2;">Failure Mode in SFT</div>
+              <div class="execution-head-group">Success Mode in RL</div>
+              <div class="execution-head-group">Observed Advantage</div>
+            </div>
+
+            <div class="execution-row">
+              <div class="execution-task">pick banana</div>
+              <article class="execution-video-card">
+                <h3 class="execution-card-title">Initial grasp failure</h3>
+                <video controls muted loop preload="metadata" playsinline class="execution-video">
+                  <source src="static/videos/real-world-execution/franka/pick-banana_Initial_grasp_failure.mp4" type="video/mp4">
+                </video>
+              </article>
+              <article class="execution-video-card">
+                <h3 class="execution-card-title">Failed transport</h3>
+                <video controls muted loop preload="metadata" playsinline class="execution-video">
+                  <source src="static/videos/real-world-execution/franka/pick-banana-failed_to_Transport.mp4" type="video/mp4">
+                </video>
+              </article>
+              <article class="execution-video-card is-success">
+                <h3 class="execution-card-title">RL success</h3>
+                <video controls muted loop preload="metadata" playsinline class="execution-video">
+                  <source src="static/videos/real-world-execution/franka/pick-banana_success.mp4" type="video/mp4">
+                </video>
+              </article>
+              <ul class="execution-notes">
+                <li>More stable execution.</li>
+                <li>Almost no post-grasp transport failures.</li>
+                <li>Fewer initial grasp failures.</li>
+              </ul>
+            </div>
+
+            <div class="execution-row">
+              <div class="execution-task">pick bread</div>
+              <article class="execution-video-card">
+                <h3 class="execution-card-title">Premature release</h3>
+                <video controls muted loop preload="metadata" playsinline class="execution-video">
+                  <source src="static/videos/real-world-execution/franka/pick-bread_premature_release.mp4" type="video/mp4">
+                </video>
+              </article>
+              <article class="execution-video-card">
+                <h3 class="execution-card-title">Gripper release failure</h3>
+                <video controls muted loop preload="metadata" playsinline class="execution-video">
+                  <source src="static/videos/real-world-execution/franka/pick-bread_gripper_release_failure.mp4" type="video/mp4">
+                </video>
+              </article>
+              <article class="execution-video-card is-success">
+                <h3 class="execution-card-title">RL success</h3>
+                <video controls muted loop preload="metadata" playsinline class="execution-video">
+                  <source src="static/videos/real-world-execution/franka/pick-bread_success.mp4" type="video/mp4">
+                </video>
+              </article>
+              <ul class="execution-notes">
+                <li>More reliable transport after grasp.</li>
+                <li>Fewer premature release cases.</li>
+                <li>Better end-to-end completion stability.</li>
+              </ul>
+            </div>
+
+            <div class="execution-row">
+              <div class="execution-task">pull drawer</div>
+              <article class="execution-video-card">
+                <h3 class="execution-card-title">Missed handle</h3>
+                <video controls muted loop preload="metadata" playsinline class="execution-video">
+                  <source src="static/videos/real-world-execution/franka/open-drawer_missed_handle.mp4" type="video/mp4">
+                </video>
+              </article>
+              <article class="execution-video-card">
+                <h3 class="execution-card-title">No effective pull</h3>
+                <video controls muted loop preload="metadata" playsinline class="execution-video">
+                  <source src="static/videos/real-world-execution/franka/open-drawer_no_effective_pull.mp4" type="video/mp4">
+                </video>
+              </article>
+              <article class="execution-video-card is-success">
+                <h3 class="execution-card-title">RL success</h3>
+                <video controls muted loop preload="metadata" playsinline class="execution-video">
+                  <source src="static/videos/real-world-execution/franka/open-drawer_success.mp4" type="video/mp4">
+                </video>
+              </article>
+              <ul class="execution-notes">
+                <li>More stable handle approach.</li>
+                <li>Fewer missed-handle failures.</li>
+                <li>More effective pull after contact.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="hero publication-header">
       <div class="hero-body">
         <div class="container is-max-desktop">
