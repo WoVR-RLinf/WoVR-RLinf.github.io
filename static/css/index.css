@@ -69,10 +69,21 @@ a:hover {
   letter-spacing: -0.03em;
 }
 
+.execution-platform-block {
+  margin-top: 3.25rem;
+}
+
+.execution-platform-block .execution-platform {
+  text-align: center;
+}
+
 .execution-video {
   width: 100%;
-  height: 240px;
-  object-fit: cover;
+  max-width: 220px;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
   border-radius: 4px;
   background: #0f172a;
   box-shadow: var(--shadow-sm);
@@ -89,6 +100,22 @@ a:hover {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.execution-table-layout {
+  position: relative;
+}
+
+.execution-table-layout .wide-table-inner {
+  width: 100%;
+  left: auto;
+  transform: none;
+}
+
+.results-table-wrap .wide-table-inner {
+  width: 100%;
+  left: auto;
+  transform: none;
 }
 
 .execution-table,
@@ -114,7 +141,7 @@ a:hover {
 }
 
 .execution-table td {
-  height: 305px;
+  height: 260px;
 }
 
 .execution-task-cell {
@@ -122,17 +149,6 @@ a:hover {
   font-family: 'Space Grotesk', 'Inter', sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
-}
-
-.video-label {
-  margin: 0 0 0.45rem;
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-  font-weight: 700;
-}
-
-.video-label.is-success {
-  color: var(--primary-color);
 }
 
 .execution-caption {
@@ -143,6 +159,12 @@ a:hover {
   color: var(--text-primary);
   font-weight: 700;
   background: rgba(23, 58, 138, 0.08);
+}
+
+.results-table td[rowspan] {
+  color: var(--text-primary);
+  font-weight: 700;
+  background: rgba(23, 58, 138, 0.04);
 }
 
 .hero-intro {
@@ -588,6 +610,13 @@ a:hover {
   gap: 1.25rem;
 }
 
+.supplementary-media-grid {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .video-card {
   padding: 1.3rem;
 }
@@ -679,6 +708,10 @@ a:hover {
 }
 
 @media screen and (max-width: 1023px) {
+  .execution-table-layout {
+    width: 100%;
+  }
+
   .execution-board-head {
     display: none;
   }
@@ -695,6 +728,10 @@ a:hover {
   .results-grid,
   .media-grid {
     grid-template-columns: 1fr;
+  }
+
+  .supplementary-media-grid {
+    width: 100%;
   }
 
   .method-card {

@@ -107,100 +107,6 @@
   </button>
 
   <main id="main-content">
-    <section class="section hero execution-showcase" id="execution-video">
-      <div class="hero-body">
-        <div class="container is-max-desktop">
-          <div class="section-header">
-            <p class="section-kicker">Real Robot</p>
-            <h2 class="title is-3">Real-World Execution Video</h2>
-            <p class="execution-platform">OpenVLA-OFT + Franka</p>
-          </div>
-
-          <div class="wide-table-wrap execution-table-wrap">
-            <div class="wide-table-inner">
-              <table class="table is-bordered is-striped execution-table">
-                <colgroup>
-                  <col style="width: 16%;">
-                  <col style="width: 28%;">
-                  <col style="width: 28%;">
-                  <col style="width: 28%;">
-                </colgroup>
-                <thead>
-                  <tr>
-                    <th>Task</th>
-                    <th>SFT Failure Mode 1</th>
-                    <th>SFT Failure Mode 2</th>
-                    <th>WoVR RL Success</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="execution-task-cell">Pick Banana</td>
-                    <td>
-                      <video controls muted loop preload="metadata" playsinline class="execution-video">
-                        <source src="static/videos/real-world-execution/franka/pick-banana_Initial_grasp_failure.mp4" type="video/mp4">
-                      </video>
-                    </td>
-                    <td>
-                      <video controls muted loop preload="metadata" playsinline class="execution-video">
-                        <source src="static/videos/real-world-execution/franka/pick-banana-failed_to_Transport.mp4" type="video/mp4">
-                      </video>
-                    </td>
-                    <td>
-                      <p class="video-label is-success">RL success</p>
-                      <video controls muted loop preload="metadata" playsinline class="execution-video">
-                        <source src="static/videos/real-world-execution/franka/pick-banana_success.mp4" type="video/mp4">
-                      </video>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="execution-task-cell">Pick Bread</td>
-                    <td>
-                      <video controls muted loop preload="metadata" playsinline class="execution-video">
-                        <source src="static/videos/real-world-execution/franka/pick-bread_premature_release.mp4" type="video/mp4">
-                      </video>
-                    </td>
-                    <td>
-                      <video controls muted loop preload="metadata" playsinline class="execution-video">
-                        <source src="static/videos/real-world-execution/franka/pick-bread_gripper_release_failure.mp4" type="video/mp4">
-                      </video>
-                    </td>
-                    <td>
-                      <p class="video-label is-success">RL success</p>
-                      <video controls muted loop preload="metadata" playsinline class="execution-video">
-                        <source src="static/videos/real-world-execution/franka/pick-bread_success.mp4" type="video/mp4">
-                      </video>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="execution-task-cell">Open Drawer</td>
-                    <td>
-                      <video controls muted loop preload="metadata" playsinline class="execution-video">
-                        <source src="static/videos/real-world-execution/franka/open-drawer_missed_handle.mp4" type="video/mp4">
-                      </video>
-                    </td>
-                    <td>
-                      <video controls muted loop preload="metadata" playsinline class="execution-video">
-                        <source src="static/videos/real-world-execution/franka/open-drawer_no_effective_pull.mp4" type="video/mp4">
-                      </video>
-                    </td>
-                    <td>
-                      <p class="video-label is-success">RL success</p>
-                      <video controls muted loop preload="metadata" playsinline class="execution-video">
-                        <source src="static/videos/real-world-execution/franka/open-drawer_success.mp4" type="video/mp4">
-                      </video>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <p class="has-text-grey subtitle has-text-centered execution-caption">
-            Visualization of real-world execution before and after WoVR policy optimization.
-          </p>
-        </div>
-      </div>
-    </section>
 
     <section class="hero publication-header">
       <div class="hero-body">
@@ -286,6 +192,263 @@
             WoVR turns learned world models into reliable simulators for reinforcement learning by
             explicitly controlling hallucination at the simulator, interaction, and alignment levels.
           </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hero execution-showcase" id="execution-video">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="section-header">
+            <h2 class="title is-3">Real-World Execution Video</h2>
+            <p class="execution-platform">OpenVLA-OFT + Franka</p>
+          </div>
+
+          <div class="wide-table-wrap execution-table-wrap">
+            <div class="execution-table-layout">
+              <div class="wide-table-inner">
+                <table class="table is-bordered is-striped execution-table">
+                  <colgroup>
+                    <col style="width: 16%;">
+                    <col style="width: 28%;">
+                    <col style="width: 28%;">
+                    <col style="width: 28%;">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>Task</th>
+                      <th>SFT Failure Mode 1</th>
+                      <th>SFT Failure Mode 2</th>
+                      <th>WoVR RL Success</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="execution-task-cell">Pick Banana</td>
+                      <td>
+                        <video controls muted loop preload="metadata" playsinline class="execution-video">
+                          <source src="static/videos/real-world-execution/franka/pick-banana_Initial_grasp_failure.mp4" type="video/mp4">
+                        </video>
+                      </td>
+                      <td>
+                        <video controls muted loop preload="metadata" playsinline class="execution-video">
+                          <source src="static/videos/real-world-execution/franka/pick-banana-failed_to_Transport.mp4" type="video/mp4">
+                        </video>
+                      </td>
+                      <td>
+                        <video controls muted loop preload="metadata" playsinline class="execution-video">
+                          <source src="static/videos/real-world-execution/franka/pick-banana_success.mp4" type="video/mp4">
+                        </video>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="execution-task-cell">Pick Bread</td>
+                      <td>
+                        <video controls muted loop preload="metadata" playsinline class="execution-video">
+                          <source src="static/videos/real-world-execution/franka/pick-bread_premature_release.mp4" type="video/mp4">
+                        </video>
+                      </td>
+                      <td>
+                        <video controls muted loop preload="metadata" playsinline class="execution-video">
+                          <source src="static/videos/real-world-execution/franka/pick-bread_gripper_release_failure.mp4" type="video/mp4">
+                        </video>
+                      </td>
+                      <td>
+                        <video controls muted loop preload="metadata" playsinline class="execution-video">
+                          <source src="static/videos/real-world-execution/franka/pick-bread_success.mp4" type="video/mp4">
+                        </video>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="execution-task-cell">Open Drawer</td>
+                      <td>
+                        <video controls muted loop preload="metadata" playsinline class="execution-video">
+                          <source src="static/videos/real-world-execution/franka/open-drawer_missed_handle.mp4" type="video/mp4">
+                        </video>
+                      </td>
+                      <td>
+                        <video controls muted loop preload="metadata" playsinline class="execution-video">
+                          <source src="static/videos/real-world-execution/franka/open-drawer_no_effective_pull.mp4" type="video/mp4">
+                        </video>
+                      </td>
+                      <td>
+                        <video controls muted loop preload="metadata" playsinline class="execution-video">
+                          <source src="static/videos/real-world-execution/franka/open-drawer_success.mp4" type="video/mp4">
+                        </video>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <p class="has-text-grey subtitle has-text-centered execution-caption">
+            Visualization of real-world execution before and after WoVR policy optimization.
+          </p>
+
+          <div class="execution-platform-block">
+            <p class="execution-platform">AgileX + OpenVLA-OFT</p>
+            <div class="wide-table-wrap execution-table-wrap">
+              <div class="execution-table-layout">
+                <div class="wide-table-inner">
+                  <table class="table is-bordered is-striped execution-table">
+                    <colgroup>
+                      <col style="width: 16%;">
+                      <col style="width: 28%;">
+                      <col style="width: 28%;">
+                      <col style="width: 28%;">
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th>Task</th>
+                        <th>SFT Failure Mode 1</th>
+                        <th>SFT Failure Mode 2</th>
+                        <th>WoVR RL Success</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="execution-task-cell">Pick Cube</td>
+                        <td>
+                          <video controls muted loop preload="metadata" playsinline class="execution-video">
+                            <source src="static/videos/real-world-execution/piper-openvla-oft/pick-cube-gripper_release_failure.mp4" type="video/mp4">
+                          </video>
+                        </td>
+                        <td>
+                          <video controls muted loop preload="metadata" playsinline class="execution-video">
+                            <source src="static/videos/real-world-execution/piper-openvla-oft/pick-cube_Missed_the_Hole.mp4" type="video/mp4">
+                          </video>
+                        </td>
+                        <td>
+                          <video controls muted loop preload="metadata" playsinline class="execution-video">
+                            <source src="static/videos/real-world-execution/piper-openvla-oft/openvla-oft_pick-cube_success.mp4" type="video/mp4">
+                          </video>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="execution-task-cell">Pick Tomato</td>
+                        <td>
+                          <video controls muted loop preload="metadata" playsinline class="execution-video">
+                            <source src="static/videos/real-world-execution/piper-openvla-oft/pick-tomato-Failed_to_Close_Box.mp4" type="video/mp4">
+                          </video>
+                        </td>
+                        <td>
+                          <video controls muted loop preload="metadata" playsinline class="execution-video">
+                            <source src="static/videos/real-world-execution/piper-openvla-oft/pick-tomato-Gripper_Stuck_Inside.mp4" type="video/mp4">
+                          </video>
+                        </td>
+                        <td>
+                          <video controls muted loop preload="metadata" playsinline class="execution-video">
+                            <source src="static/videos/real-world-execution/piper-openvla-oft/openvla-oft_pick-tomato_success.mp4" type="video/mp4">
+                          </video>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="execution-task-cell">Fold Towel</td>
+                        <td>
+                          <video controls muted loop preload="metadata" playsinline class="execution-video">
+                            <source src="static/videos/real-world-execution/piper-openvla-oft/fold-towel_Incomplete_folding.mp4" type="video/mp4">
+                          </video>
+                        </td>
+                        <td>
+                          <video controls muted loop preload="metadata" playsinline class="execution-video">
+                            <source src="static/videos/real-world-execution/piper-openvla-oft/fold-towel_Wrinkled_folding.mp4" type="video/mp4">
+                          </video>
+                        </td>
+                        <td>
+                          <video controls muted loop preload="metadata" playsinline class="execution-video">
+                            <source src="static/videos/real-world-execution/piper-openvla-oft/openvla-oft_fold-towel_success.mp4" type="video/mp4">
+                          </video>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="execution-platform-block">
+            <p class="execution-platform">AgileX + OpenPI-0.5</p>
+            <div class="wide-table-wrap execution-table-wrap">
+              <div class="execution-table-layout">
+                <div class="wide-table-inner">
+                  <table class="table is-bordered is-striped execution-table">
+                    <colgroup>
+                      <col style="width: 16%;">
+                      <col style="width: 28%;">
+                      <col style="width: 28%;">
+                      <col style="width: 28%;">
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th>Task</th>
+                        <th>SFT Failure Mode 1</th>
+                        <th>SFT Failure Mode 2</th>
+                        <th>WoVR RL Success</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="execution-task-cell">Pick Cube</td>
+                        <td>
+                          <video controls muted loop preload="metadata" playsinline class="execution-video">
+                            <source src="static/videos/real-world-execution/piper-openpi/openpi05-pick-cube_Fail_to_Grasp.mp4" type="video/mp4">
+                          </video>
+                        </td>
+                        <td>
+                          <video controls muted loop preload="metadata" playsinline class="execution-video">
+                            <source src="static/videos/real-world-execution/piper-openpi/openpi05-pick-cube_Miss_the_Hole.mp4" type="video/mp4">
+                          </video>
+                        </td>
+                        <td>
+                          <video controls muted loop preload="metadata" playsinline class="execution-video">
+                            <source src="static/videos/real-world-execution/piper-openpi/openpi05_pick-cube_success.mp4" type="video/mp4">
+                          </video>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="execution-task-cell">Pick Tomato</td>
+                        <td>
+                          <video controls muted loop preload="metadata" playsinline class="execution-video">
+                            <source src="static/videos/real-world-execution/piper-openpi/openpi05-pick-tomato_fail_to_close.mp4" type="video/mp4">
+                          </video>
+                        </td>
+                        <td>
+                          <video controls muted loop preload="metadata" playsinline class="execution-video">
+                            <source src="static/videos/real-world-execution/piper-openpi/openpi05-pick-tomato_Fail_to_Pick.mp4" type="video/mp4">
+                          </video>
+                        </td>
+                        <td>
+                          <video controls muted loop preload="metadata" playsinline class="execution-video">
+                            <source src="static/videos/real-world-execution/piper-openpi/openpi05_pick-tomato_success.mp4" type="video/mp4">
+                          </video>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="execution-task-cell">Fold Towel</td>
+                        <td>
+                          <video controls muted loop preload="metadata" playsinline class="execution-video">
+                            <source src="static/videos/real-world-execution/piper-openpi/openpi05-fold-towel_Incomplete_folding.mp4" type="video/mp4">
+                          </video>
+                        </td>
+                        <td>
+                          <video controls muted loop preload="metadata" playsinline class="execution-video">
+                            <source src="static/videos/real-world-execution/piper-openpi/openpi05-fold-towel_Wrinkled_folding.mp4" type="video/mp4">
+                          </video>
+                        </td>
+                        <td>
+                          <video controls muted loop preload="metadata" playsinline class="execution-video">
+                            <source src="static/videos/real-world-execution/piper-openpi/openpi05_fold-towel_success.mp4" type="video/mp4">
+                          </video>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -422,8 +585,8 @@
       <div class="hero-body">
         <div class="container is-max-desktop">
           <div class="section-header">
-            <p class="section-kicker">Results</p>
-            <h2 class="title is-3">Updated Results from the Latest CoRL Version</h2>
+            <!-- <p class="section-kicker">Results</p> -->
+            <h2 class="title is-3">Results</h2>
             <p class="section-intro">
               The latest paper version expands evaluation to stronger initialization settings and
               multi-platform real-world transfer while keeping the same core conclusion: reliable
@@ -436,7 +599,7 @@
             WoVR achieves stronger long-horizon video quality than prior world-model baselines while
             maintaining 23 FPS inference throughput.
           </p>
-          <div class="wide-table-wrap">
+          <div class="wide-table-wrap results-table-wrap">
             <div class="wide-table-inner">
               <table class="table is-bordered is-striped results-table">
                 <thead>
@@ -465,7 +628,7 @@
             Under both weak and strong SFT initialization, WoVR achieves the best average success rate
             across LIBERO Spatial, Object, Goal, and Long suites.
           </p>
-          <div class="wide-table-wrap">
+          <div class="wide-table-wrap results-table-wrap">
             <div class="wide-table-inner">
               <table class="table is-bordered is-striped results-table">
                 <thead>
@@ -480,14 +643,14 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><td>One-Trajectory SFT</td><td>OpenVLA-OFT</td><td>63.6</td><td>36.4</td><td>48.2</td><td>13.8</td><td>40.5</td></tr>
-                  <tr><td>One-Trajectory SFT</td><td>w/ GRPO</td><td>66.6</td><td>45.2</td><td>52.2</td><td>14.6</td><td>44.6</td></tr>
-                  <tr><td>One-Trajectory SFT</td><td>w/ WMPO</td><td>67.8</td><td>65.4</td><td>56.6</td><td>13.8</td><td>50.9</td></tr>
-                  <tr class="is-best"><td>One-Trajectory SFT</td><td>w/ WoVR</td><td>84.2</td><td>80.8</td><td>77.4</td><td>35.8</td><td>69.5</td></tr>
-                  <tr><td>Full-Trajectory SFT</td><td>OpenVLA-OFT</td><td>93.6</td><td>83.0</td><td>90.0</td><td>85.6</td><td>88.1</td></tr>
-                  <tr><td>Full-Trajectory SFT</td><td>w/ GRPO</td><td>94.6</td><td>86.2</td><td>92.2</td><td>85.8</td><td>89.7</td></tr>
-                  <tr><td>Full-Trajectory SFT</td><td>w/ WMPO</td><td>95.0</td><td>94.8</td><td>92.8</td><td>87.0</td><td>92.4</td></tr>
-                  <tr class="is-best"><td>Full-Trajectory SFT</td><td>w/ WoVR</td><td>98.8</td><td>98.8</td><td>94.8</td><td>91.4</td><td>96.0</td></tr>
+                  <tr><td rowspan="4">One-Trajectory SFT</td><td>OpenVLA-OFT</td><td>63.6</td><td>36.4</td><td>48.2</td><td>13.8</td><td>40.5</td></tr>
+                  <tr><td>w/ GRPO</td><td>66.6</td><td>45.2</td><td>52.2</td><td>14.6</td><td>44.6</td></tr>
+                  <tr><td>w/ WMPO</td><td>67.8</td><td>65.4</td><td>56.6</td><td>13.8</td><td>50.9</td></tr>
+                  <tr class="is-best"><td>w/ WoVR</td><td>84.2</td><td>80.8</td><td>77.4</td><td>35.8</td><td>69.5</td></tr>
+                  <tr><td rowspan="4">Full-Trajectory SFT</td><td>OpenVLA-OFT</td><td>93.6</td><td>83.0</td><td>90.0</td><td>85.6</td><td>88.1</td></tr>
+                  <tr><td>w/ GRPO</td><td>94.6</td><td>86.2</td><td>92.2</td><td>85.8</td><td>89.7</td></tr>
+                  <tr><td>w/ WMPO</td><td>95.0</td><td>94.8</td><td>92.8</td><td>87.0</td><td>92.4</td></tr>
+                  <tr class="is-best"><td>w/ WoVR</td><td>98.8</td><td>98.8</td><td>94.8</td><td>91.4</td><td>96.0</td></tr>
                 </tbody>
               </table>
             </div>
@@ -504,7 +667,7 @@
               Top row: Franka Emika Panda tasks. Bottom row: AgileX Piper tasks.
             </figcaption>
           </figure>
-          <div class="wide-table-wrap">
+          <div class="wide-table-wrap results-table-wrap">
             <div class="wide-table-inner">
               <table class="table is-bordered is-striped results-table">
                 <thead>
@@ -552,11 +715,11 @@
       <div class="hero-body">
         <div class="container is-max-desktop">
           <div class="section-header">
-            <p class="section-kicker">Media</p>
-            <h2 class="title is-3">Supplementary Videos</h2>
+            <!-- <p class="section-kicker">Media</p> -->
+            <h2 class="title is-3">Media: Supplementary Videos</h2>
           </div>
 
-          <div class="media-grid">
+          <div class="media-grid supplementary-media-grid">
             <article class="video-card">
               <h3 class="title is-5">Project Presentation</h3>
               <video controls preload="metadata" playsinline class="project-video">
