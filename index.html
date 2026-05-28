@@ -116,95 +116,88 @@
             <p class="execution-platform">OpenVLA-OFT + Franka</p>
           </div>
 
-          <div class="execution-board">
-            <div class="execution-board-head">
-              <div></div>
-              <div class="execution-head-group" style="grid-column: 2 / span 2;">Failure Mode in SFT</div>
-              <div class="execution-head-group">Success Mode in RL</div>
-              <div class="execution-head-group">Observed Advantage</div>
-            </div>
-
-            <div class="execution-row">
-              <div class="execution-task">pick banana</div>
-              <article class="execution-video-card">
-                <h3 class="execution-card-title">Initial grasp failure</h3>
-                <video controls muted loop preload="metadata" playsinline class="execution-video">
-                  <source src="static/videos/real-world-execution/franka/pick-banana_Initial_grasp_failure.mp4" type="video/mp4">
-                </video>
-              </article>
-              <article class="execution-video-card">
-                <h3 class="execution-card-title">Failed transport</h3>
-                <video controls muted loop preload="metadata" playsinline class="execution-video">
-                  <source src="static/videos/real-world-execution/franka/pick-banana-failed_to_Transport.mp4" type="video/mp4">
-                </video>
-              </article>
-              <article class="execution-video-card is-success">
-                <h3 class="execution-card-title">RL success</h3>
-                <video controls muted loop preload="metadata" playsinline class="execution-video">
-                  <source src="static/videos/real-world-execution/franka/pick-banana_success.mp4" type="video/mp4">
-                </video>
-              </article>
-              <ul class="execution-notes">
-                <li>More stable execution.</li>
-                <li>Almost no post-grasp transport failures.</li>
-                <li>Fewer initial grasp failures.</li>
-              </ul>
-            </div>
-
-            <div class="execution-row">
-              <div class="execution-task">pick bread</div>
-              <article class="execution-video-card">
-                <h3 class="execution-card-title">Premature release</h3>
-                <video controls muted loop preload="metadata" playsinline class="execution-video">
-                  <source src="static/videos/real-world-execution/franka/pick-bread_premature_release.mp4" type="video/mp4">
-                </video>
-              </article>
-              <article class="execution-video-card">
-                <h3 class="execution-card-title">Gripper release failure</h3>
-                <video controls muted loop preload="metadata" playsinline class="execution-video">
-                  <source src="static/videos/real-world-execution/franka/pick-bread_gripper_release_failure.mp4" type="video/mp4">
-                </video>
-              </article>
-              <article class="execution-video-card is-success">
-                <h3 class="execution-card-title">RL success</h3>
-                <video controls muted loop preload="metadata" playsinline class="execution-video">
-                  <source src="static/videos/real-world-execution/franka/pick-bread_success.mp4" type="video/mp4">
-                </video>
-              </article>
-              <ul class="execution-notes">
-                <li>More reliable transport after grasp.</li>
-                <li>Fewer premature release cases.</li>
-                <li>Better end-to-end completion stability.</li>
-              </ul>
-            </div>
-
-            <div class="execution-row">
-              <div class="execution-task">pull drawer</div>
-              <article class="execution-video-card">
-                <h3 class="execution-card-title">Missed handle</h3>
-                <video controls muted loop preload="metadata" playsinline class="execution-video">
-                  <source src="static/videos/real-world-execution/franka/open-drawer_missed_handle.mp4" type="video/mp4">
-                </video>
-              </article>
-              <article class="execution-video-card">
-                <h3 class="execution-card-title">No effective pull</h3>
-                <video controls muted loop preload="metadata" playsinline class="execution-video">
-                  <source src="static/videos/real-world-execution/franka/open-drawer_no_effective_pull.mp4" type="video/mp4">
-                </video>
-              </article>
-              <article class="execution-video-card is-success">
-                <h3 class="execution-card-title">RL success</h3>
-                <video controls muted loop preload="metadata" playsinline class="execution-video">
-                  <source src="static/videos/real-world-execution/franka/open-drawer_success.mp4" type="video/mp4">
-                </video>
-              </article>
-              <ul class="execution-notes">
-                <li>More stable handle approach.</li>
-                <li>Fewer missed-handle failures.</li>
-                <li>More effective pull after contact.</li>
-              </ul>
+          <div class="wide-table-wrap execution-table-wrap">
+            <div class="wide-table-inner">
+              <table class="table is-bordered is-striped execution-table">
+                <colgroup>
+                  <col style="width: 16%;">
+                  <col style="width: 28%;">
+                  <col style="width: 28%;">
+                  <col style="width: 28%;">
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>Task</th>
+                    <th>SFT Failure Mode 1</th>
+                    <th>SFT Failure Mode 2</th>
+                    <th>WoVR RL Success</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="execution-task-cell">Pick Banana</td>
+                    <td>
+                      <video controls muted loop preload="metadata" playsinline class="execution-video">
+                        <source src="static/videos/real-world-execution/franka/pick-banana_Initial_grasp_failure.mp4" type="video/mp4">
+                      </video>
+                    </td>
+                    <td>
+                      <video controls muted loop preload="metadata" playsinline class="execution-video">
+                        <source src="static/videos/real-world-execution/franka/pick-banana-failed_to_Transport.mp4" type="video/mp4">
+                      </video>
+                    </td>
+                    <td>
+                      <p class="video-label is-success">RL success</p>
+                      <video controls muted loop preload="metadata" playsinline class="execution-video">
+                        <source src="static/videos/real-world-execution/franka/pick-banana_success.mp4" type="video/mp4">
+                      </video>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="execution-task-cell">Pick Bread</td>
+                    <td>
+                      <video controls muted loop preload="metadata" playsinline class="execution-video">
+                        <source src="static/videos/real-world-execution/franka/pick-bread_premature_release.mp4" type="video/mp4">
+                      </video>
+                    </td>
+                    <td>
+                      <video controls muted loop preload="metadata" playsinline class="execution-video">
+                        <source src="static/videos/real-world-execution/franka/pick-bread_gripper_release_failure.mp4" type="video/mp4">
+                      </video>
+                    </td>
+                    <td>
+                      <p class="video-label is-success">RL success</p>
+                      <video controls muted loop preload="metadata" playsinline class="execution-video">
+                        <source src="static/videos/real-world-execution/franka/pick-bread_success.mp4" type="video/mp4">
+                      </video>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="execution-task-cell">Open Drawer</td>
+                    <td>
+                      <video controls muted loop preload="metadata" playsinline class="execution-video">
+                        <source src="static/videos/real-world-execution/franka/open-drawer_missed_handle.mp4" type="video/mp4">
+                      </video>
+                    </td>
+                    <td>
+                      <video controls muted loop preload="metadata" playsinline class="execution-video">
+                        <source src="static/videos/real-world-execution/franka/open-drawer_no_effective_pull.mp4" type="video/mp4">
+                      </video>
+                    </td>
+                    <td>
+                      <p class="video-label is-success">RL success</p>
+                      <video controls muted loop preload="metadata" playsinline class="execution-video">
+                        <source src="static/videos/real-world-execution/franka/open-drawer_success.mp4" type="video/mp4">
+                      </video>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
+          <p class="has-text-grey subtitle has-text-centered execution-caption">
+            Visualization of real-world execution before and after WoVR policy optimization.
+          </p>
         </div>
       </div>
     </section>
@@ -438,113 +431,103 @@
             </p>
           </div>
 
-          <div class="results-grid">
-            <article class="metric-card">
-              <h3 class="title is-5">World model quality</h3>
-              <p class="metric-highlight">23 FPS</p>
-              <p class="metric-copy">
-                Under 512-step autoregressive rollout, WoVR achieves the strongest simulator quality among
-                EVAC, Cosmos-Predict2, OpenSora, and WoVR, while remaining substantially faster at
-                inference time.
-              </p>
-              <div class="suite-grid">
-                <div class="suite-card">
-                  <span class="suite-name">LPIPS</span>
-                  <span class="suite-score">0.091</span>
-                  <span class="suite-delta">@512 rollout</span>
-                </div>
-                <div class="suite-card">
-                  <span class="suite-name">FID</span>
-                  <span class="suite-score">34.252</span>
-                  <span class="suite-delta">best overall</span>
-                </div>
-                <div class="suite-card">
-                  <span class="suite-name">FVD</span>
-                  <span class="suite-score">68.011</span>
-                  <span class="suite-delta">best overall</span>
-                </div>
-                <div class="suite-card">
-                  <span class="suite-name">FloLPIPS</span>
-                  <span class="suite-score">0.154</span>
-                  <span class="suite-delta">best overall</span>
-                </div>
-              </div>
-            </article>
+          <h3 class="title is-4">World Model Quality</h3>
+          <p>
+            WoVR achieves stronger long-horizon video quality than prior world-model baselines while
+            maintaining 23 FPS inference throughput.
+          </p>
+          <div class="wide-table-wrap">
+            <div class="wide-table-inner">
+              <table class="table is-bordered is-striped results-table">
+                <thead>
+                  <tr>
+                    <th>Method</th>
+                    <th>Rollout</th>
+                    <th>FPS &uarr;</th>
+                    <th>LPIPS &darr;</th>
+                    <th>FID &darr;</th>
+                    <th>FVD &darr;</th>
+                    <th>FloLPIPS &darr;</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>EVAC</td><td>512</td><td>1.35</td><td>0.146</td><td>46.528</td><td>345.818</td><td>0.205</td></tr>
+                  <tr><td>Cosmos-Predict2</td><td>512</td><td>3.50</td><td>0.315</td><td>165.862</td><td>275.737</td><td>0.265</td></tr>
+                  <tr><td>OpenSora</td><td>512</td><td>7.00</td><td>0.105</td><td>38.478</td><td>89.391</td><td>0.156</td></tr>
+                  <tr class="is-best"><td>WoVR (Ours)</td><td>512</td><td>23.0</td><td>0.091</td><td>34.252</td><td>68.011</td><td>0.154</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
 
-            <article class="metric-card">
-              <h3 class="title is-5">LIBERO policy gains</h3>
-              <p class="metric-highlight">40.5% &rarr; 69.5%</p>
-              <p class="metric-copy">
-                Under one-trajectory SFT, <strong>WoVR</strong> substantially outperforms
-                <strong>OpenVLA-OFT</strong>, limited-budget online <strong>GRPO</strong>, and
-                world-model-based <strong>WMPO</strong>. The latest paper also reports that WoVR remains
-                strongest under full-trajectory SFT, reaching 96.0% average success.
-              </p>
-              <figure class="embedded-figure">
-                <img src="static/images/libero_results.png" alt="LIBERO policy gains results" loading="lazy">
-              </figure>
-            </article>
+          <h3 class="title is-4">LIBERO Policy Performance</h3>
+          <p>
+            Under both weak and strong SFT initialization, WoVR achieves the best average success rate
+            across LIBERO Spatial, Object, Goal, and Long suites.
+          </p>
+          <div class="wide-table-wrap">
+            <div class="wide-table-inner">
+              <table class="table is-bordered is-striped results-table">
+                <thead>
+                  <tr>
+                    <th>Setting</th>
+                    <th>Method</th>
+                    <th>Spatial</th>
+                    <th>Object</th>
+                    <th>Goal</th>
+                    <th>Long</th>
+                    <th>Avg</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>One-Trajectory SFT</td><td>OpenVLA-OFT</td><td>63.6</td><td>36.4</td><td>48.2</td><td>13.8</td><td>40.5</td></tr>
+                  <tr><td>One-Trajectory SFT</td><td>w/ GRPO</td><td>66.6</td><td>45.2</td><td>52.2</td><td>14.6</td><td>44.6</td></tr>
+                  <tr><td>One-Trajectory SFT</td><td>w/ WMPO</td><td>67.8</td><td>65.4</td><td>56.6</td><td>13.8</td><td>50.9</td></tr>
+                  <tr class="is-best"><td>One-Trajectory SFT</td><td>w/ WoVR</td><td>84.2</td><td>80.8</td><td>77.4</td><td>35.8</td><td>69.5</td></tr>
+                  <tr><td>Full-Trajectory SFT</td><td>OpenVLA-OFT</td><td>93.6</td><td>83.0</td><td>90.0</td><td>85.6</td><td>88.1</td></tr>
+                  <tr><td>Full-Trajectory SFT</td><td>w/ GRPO</td><td>94.6</td><td>86.2</td><td>92.2</td><td>85.8</td><td>89.7</td></tr>
+                  <tr><td>Full-Trajectory SFT</td><td>w/ WMPO</td><td>95.0</td><td>94.8</td><td>92.8</td><td>87.0</td><td>92.4</td></tr>
+                  <tr class="is-best"><td>Full-Trajectory SFT</td><td>w/ WoVR</td><td>98.8</td><td>98.8</td><td>94.8</td><td>91.4</td><td>96.0</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
 
-            <article class="metric-card is-wide">
-              <h3 class="title is-5">Real-world transfer on two robotic platforms</h3>
-              <p class="metric-highlight">51.1% &rarr; 80.0%</p>
-              <p class="metric-copy">
-                The latest version evaluates three tasks on <strong>Franka Emika Panda</strong> and three
-                tasks on <strong>AgileX Piper</strong>. WoVR improves both platforms without additional
-                online real-world RL.
-              </p>
-              <figure class="embedded-figure">
-                <img src="static/images/real-world-grid.jpg" alt="Real-world experiments on Franka and AgileX Piper" loading="lazy">
-                <figcaption class="figure-caption">
-                  Top row: Franka Emika Panda tasks. Bottom row: AgileX Piper tasks.
-                </figcaption>
-              </figure>
-              <div class="submetric-grid">
-                <div class="submetric-card">
-                  <span class="submetric-name">Franka Emika Panda</span>
-                  <span class="submetric-score">80.0%</span>
-                  <span class="submetric-detail">Base 51.1 / WoVR 80.0 / +28.9</span>
-                  <span class="submetric-detail">Pick Banana 86.7, Pick Bread 90.0, Open Drawer 63.3</span>
-                </div>
-                <div class="submetric-card">
-                  <span class="submetric-name">AgileX Piper</span>
-                  <span class="submetric-score">28.9%</span>
-                  <span class="submetric-detail">Base 15.5 / WoVR 28.9 / +13.4</span>
-                  <span class="submetric-detail">Fold Towel 20.0, Pick Cube 33.3, Pick Tomato 33.3</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="metric-card">
-              <h3 class="title is-5">Generalization to a different VLA backbone</h3>
-              <p class="metric-highlight">34.4% &rarr; 56.7%</p>
-              <p class="metric-copy">
-                Using <strong>&pi;<sub>0.5</sub></strong> as the VLA backbone on AgileX Piper, WoVR still
-                delivers clear gains when combined with Flow-SDE policy optimization.
-              </p>
-              <div class="suite-grid">
-                <div class="suite-card">
-                  <span class="suite-name">Fold Towel</span>
-                  <span class="suite-score">30.0%</span>
-                  <span class="suite-delta">+10.0</span>
-                </div>
-                <div class="suite-card">
-                  <span class="suite-name">Pick Cube</span>
-                  <span class="suite-score">86.7%</span>
-                  <span class="suite-delta">+26.7</span>
-                </div>
-                <div class="suite-card">
-                  <span class="suite-name">Pick Tomato</span>
-                  <span class="suite-score">53.3%</span>
-                  <span class="suite-delta">+30.0</span>
-                </div>
-                <div class="suite-card">
-                  <span class="suite-name">Average</span>
-                  <span class="suite-score">56.7%</span>
-                  <span class="suite-delta">+22.3</span>
-                </div>
-              </div>
-            </article>
+          <h3 class="title is-4">Real-World Transfer</h3>
+          <p>
+            WoVR improves real-world success rates on both Franka Emika Panda and AgileX Piper without
+            additional online real-world reinforcement learning.
+          </p>
+          <figure class="embedded-figure">
+            <img src="static/images/real-world-grid.jpg" alt="Real-world experiments on Franka and AgileX Piper" loading="lazy">
+            <figcaption class="figure-caption">
+              Top row: Franka Emika Panda tasks. Bottom row: AgileX Piper tasks.
+            </figcaption>
+          </figure>
+          <div class="wide-table-wrap">
+            <div class="wide-table-inner">
+              <table class="table is-bordered is-striped results-table">
+                <thead>
+                  <tr>
+                    <th>Platform</th>
+                    <th>Method</th>
+                    <th>Task 1</th>
+                    <th>Task 2</th>
+                    <th>Task 3</th>
+                    <th>Avg</th>
+                    <th>Delta</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Franka</td><td>OpenVLA-OFT</td><td>36.7</td><td>70.0</td><td>46.7</td><td>51.1</td><td>-</td></tr>
+                  <tr class="is-best"><td>Franka</td><td>w/ WoVR</td><td>86.7</td><td>90.0</td><td>63.3</td><td>80.0</td><td>+28.9</td></tr>
+                  <tr><td>AgileX Piper</td><td>OpenVLA-OFT</td><td>10.0</td><td>23.3</td><td>13.3</td><td>15.5</td><td>-</td></tr>
+                  <tr class="is-best"><td>AgileX Piper</td><td>w/ WoVR</td><td>20.0</td><td>33.3</td><td>33.3</td><td>28.9</td><td>+13.4</td></tr>
+                  <tr><td>AgileX Piper (&pi;<sub>0.5</sub>)</td><td>Base</td><td>20.0</td><td>60.0</td><td>23.3</td><td>34.4</td><td>-</td></tr>
+                  <tr class="is-best"><td>AgileX Piper (&pi;<sub>0.5</sub>)</td><td>w/ WoVR</td><td>30.0</td><td>86.7</td><td>53.3</td><td>56.7</td><td>+22.3</td></tr>
+                </tbody>
+              </table>
+            </div>
           </div>
 
           <div class="highlights-row">
